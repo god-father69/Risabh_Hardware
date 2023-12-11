@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../layout/Mainf";
+import Mainf from "../layout/Mainf";
 import Home from "../pages/Home";
 import Login from "../pages/login/Login";
 import SignUp from "../pages/Signup/SignUp";
@@ -36,7 +36,7 @@ import NewMessages from "../pages/Dashboard/Admin/NewMessages/NewMessages";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
+    element: <Mainf></Mainf>,
     children: [
       {
         path: "/",
