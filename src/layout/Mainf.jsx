@@ -4,7 +4,7 @@ import Navbar from "../components/shared/Navbar/Navbar";
 import Footer from "../components/shared/Footer/Footer";
 import { Toaster } from "react-hot-toast";
 
-const Main = () => {
+const Mainf = () => {
   return (
     <div>
       <Navbar></Navbar>
@@ -13,6 +13,6 @@ const Main = () => {
       <Toaster />
     </div>
   );
-};
+}
 
-export default Main;
+export default Mainf;
