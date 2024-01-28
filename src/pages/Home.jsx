@@ -19,13 +19,13 @@ import pic12 from "../assets/brands/pic12.png";
 
 import SubHead from "../components/Heading/SubHead";
 import Button from "../components/Buttons/Button";
-import { Link } from "react-router-dom";
 // import { useGetAllMembershipPlanQuery } from "../redux/api/membership/membershipApi";
 import SectionHead from "../components/Heading/SectionHead";
 import HeroVideo from "../components/Video/HeroVideo";
-
+import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
 import "./home1.css";
-
+// import process from 'process';
 const Home = () => {
   // Handle Our Plans
   // const { data, isLoading } = useGetAllMembershipPlanQuery();
@@ -55,7 +55,29 @@ const Home = () => {
   // const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   const [video, setVideo] = useState(false);
-
+  const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
+      .then((result) => {
+        console.log(result.text);
+        Swal.fire({
+          icon: "success",
+          title: "Message Sent Successfully"
+        })
+      }, (error) => {
+        console.log(error.text);
+        Swal.fire({
+          icon: "error",
+          title: "Ooops, something went wrong",
+          text: error.text,
+        })
+      });
+    e.target.reset()
+  };
   return (
     <div>
       {/* Hero Section */}
@@ -387,35 +409,35 @@ const Home = () => {
           <div className="row">
             <h4 style={{textAlign:"center"}}>We'd love to answer your query.</h4>
           </div>
-          <div className="row input-container">
+          <form className="row input-container" onSubmit={handleOnSubmit}>
             <div className="col-xs-12">
               <div className="styled-input wide">
-                <input type="text" required />
+                <input type="text" name="from_name" required />
                 <label>Name</label>
               </div>
             </div>
             <div className="col-md-6 col-sm-12">
               <div className="styled-input">
-                <input type="text" required />
+                <input type="text" name="email_id" required />
                 <label>Email</label>
               </div>
             </div>
             <div className="col-md-6 col-sm-12">
               <div className="styled-input" style={{ float: 'right'}}>
-                <input type="text" required />
+                <input type="text" name="phone_no" required />
                 <label>Phone Number</label>
               </div>
             </div>
             <div className="col-xs-12">
               <div className="styled-input wide">
-                <textarea required></textarea>
+                <textarea name="message" required></textarea>
                 <label>Message</label>
               </div>
             </div>
             <div className="col-xs-12">
-              <div className="btn-lrg submit-btn">Send Message</div>
+              <input className="btn-lrg submit-btn" type="submit"  value="Send Message"/>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
