@@ -54,7 +54,12 @@
   font-size: 5rem;
   color: white;
 }
-
+.cont2{
+	justify-content: center;
+	text-align: center;
+	
+	padding: 20px;
+}
 /* body {
   padding-bottom: 5rem;
 } */

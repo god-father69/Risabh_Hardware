@@ -402,9 +402,9 @@ const Home = () => {
         </div>
       </div> */}
       <div className="my-10 lg:flex items-center justify-between s:my-10" style={{marginTop:"0"}} id="contact_us">
-        <div className="container" style={{marginTop:"0"}}>
+        <div className="container cont2" style={{marginTop:"0"}}>
           <div className="row">
-            <h1>Send your query here!</h1>
+            <h1 style={{fontSize:"2.5rem"}}>Send your query here!</h1>
           </div>
           <div className="row">
             <h4 style={{textAlign:"center"}}>We'd love to answer your query.</h4>

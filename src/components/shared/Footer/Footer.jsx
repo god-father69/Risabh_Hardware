@@ -12,7 +12,8 @@ const Footer = () => {
   return (
     <div
       className="bg-fixed bg-cover bg-center  flex items-center pt-20 lg:px-20 "
-      style={{ backgroundImage: `url(${footerImage})` }}
+      // style={{ backgroundImage: `url(${footerImage})` }}
+      style={{ background: `linear-gradient(115deg, rgb(0, 0, 0) 5.8%, rgb(255 77 55) 112.6%)` }}
     >
       <div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
